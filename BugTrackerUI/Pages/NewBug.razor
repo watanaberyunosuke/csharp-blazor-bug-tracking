@@ -1,7 +1,19 @@
 @page "/new-bug"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
 
-<h3>NewBug</h3>
+<h3>Add New Bug</h3>
+
+<EditForm Model="@AddBug">
+    <InputText @bind-value="@AddBug.Title" placeholder="Enter Title"></InputText>
+    <InputText @bind-value="@AddBug.Description" placeholder="Enter Description"></InputText>
+    <InputText @bind-value="@AddBug.Priority" placeholder="Enter Priority"></InputText>
+    <button type="submit">Add Bug</button>
+</EditForm>
 
 @code {
-    
+    public Bug AddBug()
+    {
+       
+    }
 }
