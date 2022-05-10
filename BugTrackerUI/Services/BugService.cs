@@ -12,7 +12,7 @@ namespace BugTrackerUI.Services
 
         public void AddBug(Bug newBug)
         {
-            newBug.Id = Bugs.Count + 1;
+            newBug.Id = Bugs.Count + 1; // simulate database id
             Bugs.Add(newBug);
         }
 

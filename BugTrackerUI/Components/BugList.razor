@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 <h3>All Bugs</h3>
 
 <table>
     
+=======
+﻿<h3>All Bugs</h3>
+
+<table>
+>>>>>>> origin/solution
     <thead>
         <tr>
             <th>Id</th>
@@ -22,15 +28,13 @@
 </table>
 
 @code {
-    
     [Inject]
-    public  IBugService BugService { get; set; }
-    
-    public List<Bug> Bugs { get; set; }
+    public IBugService BugService { get; set; }
 
-    protected void OnInitialized()
+    public List<Bug> Bugs { get; set; } = new List<Bug>();
+
+    protected override void OnInitialized()
     {
-        BugService.GetBugs().OrderBy(x => x.Priority);
+        Bugs = BugService.GetBugs().OrderBy(x => x.Priority).ToList();
     }
-
 }
