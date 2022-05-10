@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 <h3>All Bugs</h3>
 
 <table>
     
-=======
-﻿<h3>All Bugs</h3>
-
-<table>
->>>>>>> origin/module-06-solution
     <thead>
         <tr>
             <th>Id</th>
@@ -28,20 +22,16 @@
 </table>
 
 @code {
-<<<<<<< HEAD
     
     [Inject]
     public  IBugService BugService { get; set; }
     
-=======
-
-    [Inject]
-    public IBugService BugService { get; set; }
-
     public List<Bug> Bugs { get; set; }
 
     protected override void OnInitialized()
     {
-        Bugs = BugService.GetBugs().OrderBy(x => x.Priority).ToList();
+        base.OnInitialized();
+        BugService.GetBugs(Bugs).OrderBy(x => x.Priority);
     }
+
 }
