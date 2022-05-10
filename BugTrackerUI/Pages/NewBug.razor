@@ -1,10 +1,8 @@
 ﻿@page "/new-bug"
-@using BugTrackerUI.Services
-@using System.Reflection.Metadata
 
 <h3>Add New Bug</h3>
 
-<EditForm Model="AddBug" OnValidSubmit="HandleValidSubmit">
+<EditForm OnValidSubmit="HandleValidSubmit" Model="AddBug">
     <InputText @bind-Value="@AddBug.Title" placeholder="Enter Title" />
     <InputText @bind-Value="@AddBug.Description" placeholder="Enter Description" />
     <InputNumber @bind-Value="@AddBug.Priority" placeholder="Enter Priority" />
@@ -12,11 +10,13 @@
 </EditForm>
 
 @code {
+    [Inject]
+    public IBugService BugService { get; set; }
+
+    [Inject]
+    public NavigationManager NavService { get; set; }
 
     public Bug AddBug { get; set; } = new Bug();
-    
-    [Inject]
-    public IBugService BugService { get; set; } = new BugService();
 
     protected void HandleValidSubmit()
     {
